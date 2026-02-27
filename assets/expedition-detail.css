@@ -1,0 +1,606 @@
+/* ============================================
+   Expedition Detail Page – Ladakh Bike Expedition 2026
+   Cinematic, premium, high-converting
+   Colors: #0D1B2A (mountain blue), #F77F00 (sunset orange), #F8F9FA (off-white)
+   ============================================ */
+
+.expedition-detail-page {
+  background: #F8F9FA;
+}
+
+/* ---------- 1. Hero ---------- */
+.exp-hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.exp-hero-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center 40%;
+  animation: expHeroZoom 18s ease-out forwards;
+}
+@keyframes expHeroZoom {
+  from { transform: scale(1.12); }
+  to { transform: scale(1); }
+}
+.exp-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(160deg, rgba(13, 27, 42, 0.92) 0%, rgba(13, 27, 42, 0.75) 40%, rgba(13, 27, 42, 0.5) 100%);
+}
+.exp-hero-inner {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 120px 24px 100px;
+}
+.exp-hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.08;
+  margin: 0 0 16px;
+  letter-spacing: -0.03em;
+  text-shadow: 0 2px 32px rgba(0,0,0,0.4);
+}
+.exp-hero-subhead {
+  font-size: clamp(1.05rem, 2.2vw, 1.35rem);
+  color: rgba(255,255,255,0.95);
+  font-weight: 500;
+  margin: 0 0 28px;
+  letter-spacing: 0.02em;
+}
+.exp-hero-highlights {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px 24px;
+  margin-bottom: 36px;
+}
+.exp-hero-highlights span {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.95);
+  padding: 8px 16px;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 100px;
+}
+.exp-hero-btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  justify-content: center;
+}
+.btn-exp-primary {
+  background: #F77F00 !important;
+  color: #fff !important;
+  border: 2px solid #F77F00;
+  padding: 16px 32px;
+  font-weight: 600;
+  font-size: 1.02rem;
+  border-radius: 100px;
+  box-shadow: 0 8px 28px rgba(247, 127, 0, 0.4);
+  transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+.btn-exp-primary:hover {
+  background: #ff9224 !important;
+  border-color: #ff9224;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(247, 127, 0, 0.45);
+}
+.btn-exp-secondary {
+  background: transparent !important;
+  color: #fff !important;
+  border: 2px solid rgba(255,255,255,0.85);
+  padding: 16px 32px;
+  font-weight: 600;
+  border-radius: 100px;
+  transition: background 0.3s, border-color 0.3s;
+}
+.btn-exp-secondary:hover {
+  background: rgba(255,255,255,0.12) !important;
+  border-color: #fff;
+  color: #fff !important;
+}
+.btn-exp-outline {
+  background: transparent !important;
+  color: #0D1B2A !important;
+  border: 2px solid #0D1B2A;
+}
+.btn-exp-outline:hover {
+  background: #0D1B2A !important;
+  color: #fff !important;
+}
+.btn-block { display: block; width: 100%; text-align: center; }
+.exp-hero-scroll {
+  position: absolute;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255,255,255,0.8);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.exp-scroll-line {
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.6), transparent);
+  border-radius: 2px;
+  animation: expScrollPulse 2s ease-in-out infinite;
+}
+@keyframes expScrollPulse {
+  0%, 100% { opacity: 0.6; transform: scaleY(1); }
+  50% { opacity: 1; transform: scaleY(0.8); }
+}
+
+/* ---------- 2. Layout: Main + Sticky Summary ---------- */
+.exp-layout {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 48px;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px 80px;
+  align-items: start;
+}
+@media (max-width: 1024px) {
+  .exp-layout {
+    grid-template-columns: 1fr;
+    padding-bottom: 100px;
+  }
+}
+.exp-main { min-width: 0; }
+
+/* Sticky Summary Card */
+.exp-summary-aside {
+  position: sticky;
+  top: 100px;
+}
+@media (max-width: 1024px) {
+  .exp-summary-aside {
+    order: -1;
+    position: static;
+    margin-bottom: 24px;
+  }
+}
+.exp-summary-card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 28px 24px;
+  box-shadow: 0 12px 48px rgba(13, 27, 42, 0.1);
+  border: 1px solid rgba(13, 27, 42, 0.08);
+  backdrop-filter: blur(12px);
+}
+.exp-summary-title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #0D1B2A;
+  margin: 0 0 20px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid rgba(247, 127, 0, 0.3);
+}
+.exp-summary-list {
+  margin: 0 0 24px;
+  padding: 0;
+  display: grid;
+  gap: 12px 0;
+}
+.exp-summary-list dt {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #5c6b73;
+  margin: 0;
+}
+.exp-summary-list dd {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #0D1B2A;
+  margin: 0 0 14px;
+}
+.exp-summary-list dd:last-of-type { margin-bottom: 0; }
+.exp-summary-price {
+  font-size: 1.35rem !important;
+  color: #F77F00 !important;
+  font-weight: 700 !important;
+}
+.exp-summary-price span { font-size: 0.9rem; font-weight: 500; color: #5c6b73; }
+.exp-summary-card .btn { margin-bottom: 10px; }
+.exp-summary-card .btn:last-child { margin-bottom: 0; }
+
+/* Intro */
+.exp-intro { padding-top: 56px; }
+.exp-intro-text {
+  font-size: 1.12rem;
+  line-height: 1.75;
+  color: #1a2634;
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* ---------- 3. Route Accordion ---------- */
+.exp-route .section-header { margin-bottom: 32px; }
+.exp-accordion {
+  max-width: 800px;
+  margin: 0 auto;
+}
+.exp-accordion-item {
+  background: #fff;
+  border-radius: 16px;
+  margin-bottom: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(13, 27, 42, 0.08);
+  box-shadow: 0 4px 20px rgba(13, 27, 42, 0.06);
+  transition: box-shadow 0.3s, border-color 0.3s;
+}
+.exp-accordion-item:hover {
+  box-shadow: 0 8px 28px rgba(13, 27, 42, 0.08);
+}
+.exp-accordion-item[open] {
+  border-color: rgba(247, 127, 0, 0.3);
+  box-shadow: 0 12px 32px rgba(247, 127, 0, 0.08);
+}
+.exp-accordion-item summary {
+  list-style: none;
+  padding: 20px 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  transition: background 0.2s;
+}
+.exp-accordion-item summary::-webkit-details-marker { display: none; }
+.exp-accordion-item summary:hover { background: rgba(247, 127, 0, 0.04); }
+.exp-day-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 64px;
+  padding: 8px 12px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #fff;
+  background: #F77F00;
+  border-radius: 10px;
+}
+.exp-day-title {
+  flex: 1;
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: #0D1B2A;
+}
+.exp-day-toggle {
+  width: 24px;
+  height: 24px;
+  position: relative;
+  flex-shrink: 0;
+}
+.exp-day-toggle::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 10px;
+  height: 10px;
+  border-right: 2px solid #0D1B2A;
+  border-bottom: 2px solid #0D1B2A;
+  transform: translate(-50%, -60%) rotate(45deg);
+  transition: transform 0.3s;
+}
+.exp-accordion-item[open] .exp-day-toggle::before {
+  transform: translate(-50%, -40%) rotate(-135deg);
+}
+.exp-accordion-body {
+  padding: 0 24px 24px;
+  border-top: 1px solid rgba(13, 27, 42, 0.06);
+}
+.exp-accordion-body {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 24px;
+  align-items: start;
+}
+@media (max-width: 600px) {
+  .exp-accordion-body { grid-template-columns: 1fr; }
+}
+.exp-day-img {
+  border-radius: 12px;
+  overflow: hidden;
+  background: #F8F9FA;
+}
+.exp-day-img img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  object-position: center 45%;
+  display: block;
+}
+.exp-day-content p { margin: 0; font-size: 1rem; line-height: 1.7; color: #1a2634; }
+.exp-day-content p + p { margin-top: 12px; }
+.exp-day-stay {
+  margin-top: 16px !important;
+  padding-top: 14px;
+  font-size: 0.9rem !important;
+  color: #5c6b73 !important;
+  border-top: 1px dashed rgba(13, 27, 42, 0.12);
+}
+.exp-day-stay strong { color: #0D1B2A; }
+
+/* ---------- 4. Inclusions / Exclusions ---------- */
+.exp-inout-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  max-width: 720px;
+  margin: 0 auto;
+}
+@media (max-width: 640px) {
+  .exp-inout-grid { grid-template-columns: 1fr; }
+}
+.exp-inout-col h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #0D1B2A;
+  margin: 0 0 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.exp-icon {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+}
+.exp-icon-check {
+  background: #22c55e;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+}
+.exp-icon-check::after {
+  content: '✓';
+}
+.exp-icon-cross {
+  background: #ef4444;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+}
+.exp-icon-cross::after {
+  content: '✕';
+}
+.exp-inout-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.exp-inout-col li {
+  padding: 8px 0 8px 32px;
+  position: relative;
+  font-size: 0.95rem;
+  color: #1a2634;
+  line-height: 1.5;
+}
+.exp-included li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #22c55e;
+  font-weight: 700;
+}
+.exp-excluded li::before {
+  content: '✕';
+  position: absolute;
+  left: 0;
+  color: #ef4444;
+  font-weight: 700;
+}
+
+/* ---------- 5. Why Ride With Us ---------- */
+.exp-why-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+@media (max-width: 900px) {
+  .exp-why-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+  .exp-why-grid { grid-template-columns: 1fr; }
+}
+.exp-why-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 28px 22px;
+  text-align: center;
+  border: 1px solid rgba(13, 27, 42, 0.08);
+  box-shadow: 0 8px 28px rgba(13, 27, 42, 0.06);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.exp-why-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(13, 27, 42, 0.1);
+}
+.exp-why-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  color: #F77F00;
+}
+.exp-why-icon svg { display: block; }
+.exp-why-card h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #0D1B2A;
+  margin: 0 0 8px;
+}
+.exp-why-card p {
+  font-size: 0.9rem;
+  color: #5c6b73;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* ---------- 6. Testimonials ---------- */
+.exp-testi-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+@media (max-width: 900px) {
+  .exp-testi-grid { grid-template-columns: 1fr; }
+}
+.exp-testi-card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 28px 24px;
+  text-align: center;
+  border: 1px solid rgba(13, 27, 42, 0.06);
+  box-shadow: 0 8px 28px rgba(13, 27, 42, 0.06);
+  transition: box-shadow 0.3s;
+}
+.exp-testi-card:hover { box-shadow: 0 16px 40px rgba(13, 27, 42, 0.08); }
+.exp-testi-avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #0D1B2A, #1a3a5c);
+  color: #fff;
+  font-weight: 700;
+  font-size: 1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 14px;
+}
+.exp-testi-stars {
+  color: #F77F00;
+  font-size: 1.1rem;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+}
+.exp-testi-text {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: #1a2634;
+  margin: 0 0 14px;
+}
+.exp-testi-author {
+  font-size: 0.85rem;
+  color: #5c6b73;
+  margin: 0;
+}
+
+/* ---------- 7. FAQ ---------- */
+.exp-faq-list {
+  max-width: 680px;
+  margin: 0 auto;
+}
+.exp-faq-item {
+  background: #fff;
+  border-radius: 14px;
+  margin-bottom: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(13, 27, 42, 0.08);
+  box-shadow: 0 4px 16px rgba(13, 27, 42, 0.05);
+  transition: box-shadow 0.3s;
+}
+.exp-faq-item:hover { box-shadow: 0 8px 24px rgba(13, 27, 42, 0.08); }
+.exp-faq-item[open] { border-color: rgba(247, 127, 0, 0.25); }
+.exp-faq-item summary {
+  list-style: none;
+  padding: 20px 24px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1.02rem;
+  color: #0D1B2A;
+  transition: background 0.2s;
+}
+.exp-faq-item summary::-webkit-details-marker { display: none; }
+.exp-faq-item summary::after {
+  content: '';
+  float: right;
+  width: 20px;
+  height: 20px;
+  border-right: 2px solid #0D1B2A;
+  border-bottom: 2px solid #0D1B2A;
+  transform: rotate(45deg);
+  margin-top: 4px;
+  transition: transform 0.3s;
+}
+.exp-faq-item[open] summary::after {
+  transform: rotate(-135deg);
+}
+.exp-faq-item summary:hover { background: rgba(247, 127, 0, 0.05); }
+.exp-faq-item p {
+  margin: 0;
+  padding: 0 24px 20px;
+  font-size: 0.98rem;
+  line-height: 1.7;
+  color: #1a2634;
+}
+.exp-faq-item a { color: #F77F00; font-weight: 500; }
+.exp-faq-item a:hover { text-decoration: underline; }
+
+/* ---------- 8. Sticky Booking CTA (mobile) ---------- */
+.exp-sticky-cta {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 900;
+  padding: 14px 20px;
+  background: #fff;
+  box-shadow: 0 -8px 32px rgba(13, 27, 42, 0.15);
+  border-top: 1px solid rgba(13, 27, 42, 0.08);
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+.exp-sticky-cta.visible { display: flex; }
+.exp-sticky-cta .btn {
+  width: 100%;
+  max-width: 400px;
+  padding: 16px 24px;
+  font-size: 1.05rem;
+}
+@media (min-width: 1025px) {
+  .exp-sticky-cta { display: none !important; }
+}
+
+/* Expedition section tag override */
+.expedition-detail-page .section-tag {
+  color: #c65d2a;
+  background: rgba(247, 127, 0, 0.1);
+  border-color: rgba(247, 127, 0, 0.25);
+}
+.expedition-detail-page .section-title { color: #0D1B2A; }
+.expedition-detail-page .section-desc { color: #5c6b73; }
