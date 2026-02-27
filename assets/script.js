@@ -64,4 +64,60 @@
       alert('Thank you! We will get back to you soon. You can also reach us on WhatsApp using the green button.');
     });
   }
+
+  // Testimonials slider
+  const sliderWrap = document.querySelector('.testimonials-slider-wrap');
+  if (sliderWrap) {
+    const track = sliderWrap.querySelector('.testimonials-track');
+    const slides = sliderWrap.querySelectorAll('.testimonial-slide');
+    const prevBtn = sliderWrap.querySelector('.testimonial-prev');
+    const nextBtn = sliderWrap.querySelector('.testimonial-next');
+    const dots = sliderWrap.querySelectorAll('.testimonial-dot');
+    const total = slides.length;
+    let current = 0;
+    let autoplayTimer = null;
+    const AUTOPLAY_MS = 5000;
+
+    function goTo(index) {
+      current = (index + total) % total;
+      if (track) track.style.transform = 'translateX(-' + current * 100 + '%)';
+      dots.forEach(function (d, i) {
+        d.classList.toggle('active', i === current);
+        d.setAttribute('aria-selected', i === current);
+      });
+    }
+
+    function next() {
+      goTo(current + 1);
+      resetAutoplay();
+    }
+    function prev() {
+      goTo(current - 1);
+      resetAutoplay();
+    }
+
+    function resetAutoplay() {
+      if (autoplayTimer) clearInterval(autoplayTimer);
+      autoplayTimer = setInterval(next, AUTOPLAY_MS);
+    }
+
+    if (prevBtn) prevBtn.addEventListener('click', prev);
+    if (nextBtn) nextBtn.addEventListener('click', next);
+    dots.forEach(function (dot, i) {
+      dot.addEventListener('click', function () {
+        goTo(i);
+        resetAutoplay();
+      });
+    });
+
+    if (total > 0) {
+      autoplayTimer = setInterval(next, AUTOPLAY_MS);
+      sliderWrap.addEventListener('mouseenter', function () {
+        if (autoplayTimer) clearInterval(autoplayTimer);
+      });
+      sliderWrap.addEventListener('mouseleave', function () {
+        autoplayTimer = setInterval(next, AUTOPLAY_MS);
+      });
+    }
+  }
 })();
