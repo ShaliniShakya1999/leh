@@ -1184,51 +1184,102 @@ a.btn-outline:active {
 }
 .expedition-intro-img img { width: 100%; height: auto; display: block; }
 
-/* Accordion itinerary */
+/* Accordion itinerary – clear, inviting, easy to scan */
+.itinerary-hint {
+  font-size: 1rem;
+  color: var(--color-text-muted);
+  max-width: 520px;
+  margin: 0 auto 28px;
+  line-height: 1.6;
+}
 .accordion-itinerary {
   max-width: 720px;
   margin: 0 auto;
 }
 .accordion-day {
-  border: 1px solid rgba(14, 76, 146, 0.12);
-  border-radius: var(--radius);
-  margin-bottom: 12px;
+  border: 1px solid rgba(14, 76, 146, 0.1);
+  border-radius: var(--radius-lg);
+  margin-bottom: 14px;
   overflow: hidden;
   background: var(--color-white);
+  box-shadow: var(--shadow-soft);
+  border-left: 4px solid var(--color-sky);
+  transition: box-shadow var(--transition), border-left-color var(--transition);
+}
+.accordion-day:hover {
+  box-shadow: var(--shadow-card);
+}
+.accordion-day[open] {
+  border-left-color: var(--color-sky-light);
+  box-shadow: var(--shadow-card);
 }
 .accordion-day summary {
-  padding: 18px 22px;
-  font-weight: 600;
-  color: var(--color-text);
+  padding: 20px 24px;
   cursor: pointer;
   list-style: none;
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 16px;
+  flex-wrap: wrap;
   transition: background 0.2s ease;
 }
 .accordion-day summary::-webkit-details-marker { display: none; }
-.accordion-day summary::after {
-  content: '+';
-  margin-left: auto;
-  font-size: 1.2rem;
-  color: var(--color-sky);
-}
-.accordion-day[open] summary::after { content: '−'; }
+.accordion-day summary::after { display: none; }
 .accordion-day summary:hover { background: rgba(14, 76, 146, 0.04); }
 .accordion-day .day-num {
-  display: inline-block;
-  min-width: 60px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 72px;
+  padding: 8px 12px;
   font-size: 0.85rem;
-  color: var(--color-sky);
   font-weight: 700;
+  color: var(--color-sky);
+  background: rgba(14, 76, 146, 0.08);
+  border-radius: 8px;
 }
+.accordion-day .day-route {
+  flex: 1;
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--color-text);
+}
+.accordion-day .day-toggle {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--color-sky);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.accordion-day .day-toggle::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid var(--color-sky);
+  border-bottom: 2px solid var(--color-sky);
+  transform: rotate(45deg);
+  transition: transform var(--transition);
+}
+.accordion-day[open] .day-toggle::before {
+  transform: rotate(-135deg);
+}
+.accordion-day[open] .day-toggle { color: var(--color-sky-dark); }
 .accordion-body {
-  padding: 0 22px 20px;
+  padding: 20px 24px 24px;
   border-top: 1px solid rgba(14, 76, 146, 0.08);
+  background: rgba(14, 76, 146, 0.02);
 }
-.accordion-body p { margin: 12px 0 0; font-size: 0.95rem; line-height: 1.65; color: var(--color-text); }
-.accordion-body .day-stay { margin-top: 12px; font-size: 0.9rem; color: var(--color-muted); }
+.accordion-body p { margin: 0; font-size: 1rem; line-height: 1.7; color: var(--color-text); }
+.accordion-body p + p { margin-top: 12px; }
+.accordion-body .day-stay {
+  margin-top: 16px;
+  padding-top: 14px;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  border-top: 1px dashed rgba(14, 76, 146, 0.12);
+}
+.accordion-body .day-stay strong { color: var(--color-text); }
 
 /* Two column lists (Inclusions / Exclusions) */
 .two-col-lists {
