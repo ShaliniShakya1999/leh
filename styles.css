@@ -388,22 +388,30 @@ a.btn-outline:active {
   inset: 0;
   background-size: cover;
   background-position: center;
-  opacity: 0.25;
+  opacity: 0.55;
+}
+.page-hero-with-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(10, 37, 64, 0.5) 0%, rgba(14, 76, 146, 0.4) 100%);
+  pointer-events: none;
 }
 .page-hero-with-bg .container {
   position: relative;
   z-index: 1;
 }
 .contact-visual {
-  border-radius: var(--radius-lg);
+  border-radius: 18px;
   overflow: hidden;
   margin-bottom: 40px;
-  box-shadow: var(--shadow-soft);
+  box-shadow: 0 10px 40px rgba(14, 76, 146, 0.1);
 }
 .contact-visual img {
   width: 100%;
-  height: 220px;
+  height: 280px;
   object-fit: cover;
+  object-position: center 45%;
 }
 .gallery-grid-sm {
   grid-template-columns: repeat(3, 1fr);
@@ -485,7 +493,7 @@ a.btn-outline:active {
 /* ========== Hero Fullwidth (Home) ========== */
 .hero-fullwidth {
   position: relative;
-  min-height: 90vh;
+  min-height: 92vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1030,36 +1038,37 @@ a.btn-outline:active {
 /* ========== Packages ========== */
 .packages-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 32px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 28px;
 }
 .package-card {
   background: var(--color-white);
-  border-radius: var(--radius-lg);
+  border-radius: 18px;
   overflow: hidden;
-  box-shadow: 0 8px 32px rgba(14, 76, 146, 0.08);
+  box-shadow: 0 10px 40px rgba(14, 76, 146, 0.1);
   border: 1px solid rgba(14, 76, 146, 0.08);
-  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
 }
 .package-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 20px 48px rgba(14, 76, 146, 0.12);
-  border-color: rgba(14, 76, 146, 0.14);
+  transform: translateY(-8px);
+  box-shadow: 0 24px 56px rgba(14, 76, 146, 0.14);
+  border-color: rgba(14, 76, 146, 0.12);
 }
 .package-img {
   position: relative;
-  height: 220px;
+  height: 260px;
   overflow: hidden;
-  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  border-radius: 18px 18px 0 0;
 }
 .package-img img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center 45%;
   transition: transform 0.6s ease;
 }
 .package-card:hover .package-img img {
-  transform: scale(1.06);
+  transform: scale(1.08);
 }
 .package-badge {
   position: absolute;
@@ -1176,13 +1185,20 @@ a.btn-outline:active {
 /* Expedition intro image */
 .expedition-intro { text-align: center; }
 .expedition-intro-img {
-  max-width: 900px;
-  margin: 24px auto 0;
+  max-width: 1100px;
+  margin: 28px auto 0;
   border-radius: var(--radius-lg);
   overflow: hidden;
-  box-shadow: var(--shadow-card);
+  box-shadow: 0 20px 60px rgba(14, 76, 146, 0.15);
 }
-.expedition-intro-img img { width: 100%; height: auto; display: block; }
+.expedition-intro-img img {
+  width: 100%;
+  height: auto;
+  min-height: 320px;
+  object-fit: cover;
+  object-position: center 45%;
+  display: block;
+}
 
 /* Accordion itinerary – clear, inviting, easy to scan */
 .itinerary-hint {
@@ -1451,15 +1467,15 @@ a.btn-outline:active {
   gap: 20px;
 }
 .attraction-card {
-  border-radius: var(--radius-lg);
+  border-radius: 18px;
   overflow: hidden;
-  box-shadow: var(--shadow-soft);
+  box-shadow: 0 10px 40px rgba(14, 76, 146, 0.1);
   border: 1px solid rgba(14, 76, 146, 0.06);
-  transition: transform var(--transition), box-shadow var(--transition);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 .attraction-card:hover {
-  transform: translateY(-6px);
-  box-shadow: var(--shadow-hover);
+  transform: translateY(-8px);
+  box-shadow: 0 24px 56px rgba(14, 76, 146, 0.14);
 }
 .attraction-img {
   position: relative;
@@ -1987,14 +2003,14 @@ a.btn-outline:active {
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-auto-rows: 220px;
-  gap: 16px;
+  grid-auto-rows: 240px;
+  gap: 20px;
 }
 .gallery-item {
   position: relative;
-  border-radius: var(--radius);
+  border-radius: 14px;
   overflow: hidden;
-  box-shadow: 0 6px 20px rgba(14, 76, 146, 0.08);
+  box-shadow: 0 8px 28px rgba(14, 76, 146, 0.1);
   cursor: pointer;
   transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
@@ -2005,28 +2021,29 @@ a.btn-outline:active {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center 50%;
   transition: transform 0.5s ease;
 }
 .gallery-item:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 16px 40px rgba(14, 76, 146, 0.18);
+  transform: translateY(-6px);
+  box-shadow: 0 20px 48px rgba(14, 76, 146, 0.18);
 }
 .gallery-item:hover img {
-  transform: scale(1.1);
+  transform: scale(1.08);
 }
 .gallery-caption {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 16px;
-  background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+  padding: 18px;
+  background: linear-gradient(to top, rgba(0,0,0,0.75), transparent);
   color: var(--color-white);
-  font-size: 0.9rem;
-  font-weight: 500;
+  font-size: 0.95rem;
+  font-weight: 600;
   opacity: 0;
   transform: translateY(10px);
-  transition: all var(--transition);
+  transition: all 0.35s ease;
 }
 .gallery-item:hover .gallery-caption {
   opacity: 1;
@@ -2365,8 +2382,9 @@ a.btn-outline:active {
 }
 .about-teaser-img img {
   width: 100%;
-  height: 280px;
+  height: 380px;
   object-fit: cover;
+  object-position: center 40%;
   transition: transform 0.6s ease;
 }
 .about-with-bg:hover .about-teaser-img img {
@@ -2377,10 +2395,10 @@ a.btn-outline:active {
     grid-template-columns: 1fr;
   }
   .about-teaser-img {
-    max-height: 260px;
+    max-height: 320px;
   }
   .about-teaser-img img {
-    height: 260px;
+    height: 320px;
   }
 }
 

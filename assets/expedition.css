@@ -1,0 +1,513 @@
+/* ============================================
+   Expedition Page – Premium Adventure Theme
+   Deep Blue primary, Orange accent, Poppins
+   ============================================ */
+
+.expedition-page {
+  font-family: 'Poppins', -apple-system, sans-serif;
+  background: #f5f6f8;
+}
+
+:root {
+  --exp-deep-blue: #0a2540;
+  --exp-blue: #0e4c92;
+  --exp-blue-light: #1a6bb5;
+  --exp-accent: #e85d04;
+  --exp-accent-hover: #d54d00;
+  --exp-bg: #f5f6f8;
+  --exp-white: #ffffff;
+  --exp-text: #1a2634;
+  --exp-text-muted: #5c6b73;
+  --exp-radius: 14px;
+  --exp-radius-lg: 20px;
+  --exp-transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  --exp-shadow: 0 8px 32px rgba(10, 37, 64, 0.08);
+  --exp-shadow-hover: 0 16px 48px rgba(10, 37, 64, 0.12);
+}
+
+/* ---------- 1. Hero ---------- */
+.exp-hero {
+  position: relative;
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.exp-hero-bg {
+  position: absolute;
+  inset: 0;
+}
+.exp-hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 40%;
+}
+.exp-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(10, 37, 64, 0.88) 0%, rgba(10, 37, 64, 0.6) 50%, rgba(14, 76, 146, 0.5) 100%);
+}
+.exp-hero-inner {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 140px 24px 100px;
+}
+.exp-hero-title {
+  font-size: clamp(2.25rem, 5.5vw, 3.75rem);
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.15;
+  margin: 0 0 16px;
+  text-shadow: 0 2px 24px rgba(0,0,0,0.3);
+}
+.exp-hero-sub {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  color: rgba(255,255,255,0.95);
+  margin: 0 0 32px;
+  font-weight: 500;
+}
+.exp-hero-btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  justify-content: center;
+}
+.exp-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 32px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: all var(--exp-transition);
+  border: 2px solid transparent;
+}
+.exp-btn-primary {
+  background: var(--exp-accent);
+  color: #fff !important;
+  border-color: var(--exp-accent);
+  box-shadow: 0 6px 24px rgba(232, 93, 4, 0.35);
+}
+.exp-btn-primary:hover {
+  background: var(--exp-accent-hover);
+  border-color: var(--exp-accent-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 32px rgba(232, 93, 4, 0.4);
+  color: #fff !important;
+}
+.exp-btn-secondary {
+  background: transparent;
+  color: #fff !important;
+  border-color: rgba(255,255,255,0.8);
+}
+.exp-btn-secondary:hover {
+  background: rgba(255,255,255,0.15);
+  border-color: #fff;
+  color: #fff !important;
+  transform: translateY(-2px);
+}
+.exp-btn-outline {
+  background: transparent;
+  color: var(--exp-blue) !important;
+  border-color: var(--exp-blue);
+}
+.exp-btn-outline:hover {
+  background: var(--exp-blue);
+  color: #fff !important;
+  transform: translateY(-2px);
+}
+
+/* ---------- 2. Sections global ---------- */
+.exp-section {
+  padding: 72px 0;
+}
+.exp-section-alt {
+  background: var(--exp-white);
+}
+.exp-tag {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--exp-accent);
+  margin-bottom: 10px;
+}
+.exp-heading {
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  font-weight: 700;
+  color: var(--exp-deep-blue);
+  margin: 0 0 24px;
+  line-height: 1.25;
+}
+.exp-heading-center {
+  text-align: center;
+}
+
+/* ---------- Overview: 2-column ---------- */
+.exp-overview-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: center;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.exp-overview-text p {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: var(--exp-text);
+  margin: 0 0 18px;
+}
+.exp-overview-text .exp-btn {
+  margin-top: 12px;
+}
+.exp-overview-img {
+  border-radius: var(--exp-radius-lg);
+  overflow: hidden;
+  box-shadow: var(--exp-shadow);
+}
+.exp-overview-img img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+@media (max-width: 900px) {
+  .exp-overview-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  .exp-overview-img { order: -1; }
+}
+
+/* ---------- 3. Route Highlights: card grid ---------- */
+.exp-route-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 24px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.exp-route-card {
+  background: var(--exp-white);
+  border-radius: var(--exp-radius-lg);
+  overflow: hidden;
+  box-shadow: var(--exp-shadow);
+  transition: transform var(--exp-transition), box-shadow var(--exp-transition);
+  border: 1px solid rgba(10, 37, 64, 0.06);
+}
+.exp-route-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--exp-shadow-hover);
+}
+.exp-route-card-img {
+  aspect-ratio: 4/3;
+  overflow: hidden;
+}
+.exp-route-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--exp-transition);
+}
+.exp-route-card:hover .exp-route-card-img img {
+  transform: scale(1.08);
+}
+.exp-route-card h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--exp-deep-blue);
+  margin: 0;
+  padding: 16px 16px 6px;
+}
+.exp-route-card p {
+  font-size: 0.85rem;
+  color: var(--exp-text-muted);
+  margin: 0;
+  padding: 0 16px 16px;
+  line-height: 1.4;
+}
+@media (max-width: 600px) {
+  .exp-route-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+}
+
+/* ---------- Route bar ---------- */
+.exp-route-bar {
+  padding: 40px 0;
+  background: linear-gradient(135deg, rgba(10, 37, 64, 0.04), rgba(232, 93, 4, 0.04));
+  border-top: 1px solid rgba(10, 37, 64, 0.08);
+  border-bottom: 1px solid rgba(10, 37, 64, 0.08);
+}
+.exp-route-route {
+  font-size: clamp(0.9rem, 1.5vw, 1.05rem);
+  font-weight: 600;
+  color: var(--exp-deep-blue);
+  text-align: center;
+  margin: 0 0 6px;
+}
+.exp-route-dates {
+  font-size: 0.9rem;
+  color: var(--exp-text-muted);
+  text-align: center;
+  margin: 0;
+}
+
+/* ---------- 4. Itinerary accordion ---------- */
+.exp-itinerary-hint {
+  text-align: center;
+  font-size: 0.95rem;
+  color: var(--exp-text-muted);
+  margin: 0 auto 28px;
+  max-width: 480px;
+}
+.exp-accordion {
+  max-width: 720px;
+  margin: 0 auto;
+}
+.exp-accordion-day {
+  background: var(--exp-white);
+  border-radius: var(--exp-radius-lg);
+  margin-bottom: 14px;
+  overflow: hidden;
+  box-shadow: var(--exp-shadow);
+  border-left: 4px solid var(--exp-accent);
+  transition: box-shadow var(--exp-transition);
+}
+.exp-accordion-day:hover {
+  box-shadow: var(--exp-shadow-hover);
+}
+.exp-accordion-day[open] {
+  border-left-color: var(--exp-blue);
+}
+.exp-accordion-day summary {
+  padding: 20px 24px;
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  font-weight: 600;
+  color: var(--exp-deep-blue);
+  transition: background 0.2s ease;
+}
+.exp-accordion-day summary::-webkit-details-marker { display: none; }
+.exp-accordion-day summary:hover {
+  background: rgba(232, 93, 4, 0.04);
+}
+.exp-day-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 72px;
+  padding: 8px 12px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--exp-white);
+  background: var(--exp-accent);
+  border-radius: 8px;
+}
+.exp-day-title {
+  flex: 1;
+}
+.exp-accordion-body {
+  padding: 20px 24px 24px;
+  border-top: 1px solid rgba(10, 37, 64, 0.06);
+  background: rgba(232, 93, 4, 0.02);
+}
+.exp-accordion-body p {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--exp-text);
+}
+.exp-accordion-body p + p { margin-top: 12px; }
+.exp-accordion-thumb {
+  max-width: 280px;
+  border-radius: var(--exp-radius);
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+.exp-accordion-thumb img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.exp-day-stay {
+  margin-top: 14px !important;
+  padding-top: 14px;
+  border-top: 1px dashed rgba(10, 37, 64, 0.12);
+  font-size: 0.9rem !important;
+  color: var(--exp-text-muted) !important;
+}
+.exp-day-stay strong { color: var(--exp-text); }
+.exp-section-btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  justify-content: center;
+  margin-top: 36px;
+}
+
+/* ---------- 5. Inclusions & Exclusions ---------- */
+.exp-inclusions {
+  background: linear-gradient(180deg, rgba(232, 93, 4, 0.03) 0%, var(--exp-bg) 100%);
+}
+.exp-incl-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.exp-incl-col {
+  background: var(--exp-white);
+  border-radius: var(--exp-radius-lg);
+  padding: 28px 24px;
+  box-shadow: var(--exp-shadow);
+  border: 1px solid rgba(10, 37, 64, 0.06);
+}
+.exp-incl-col h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 0 0 20px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid rgba(10, 37, 64, 0.08);
+}
+.exp-incl-included h3 { color: #0d9488; }
+.exp-incl-excluded h3 { color: var(--exp-text-muted); }
+.exp-incl-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.exp-incl-col li {
+  padding: 8px 0;
+  padding-left: 28px;
+  position: relative;
+  font-size: 0.95rem;
+  color: var(--exp-text);
+  line-height: 1.4;
+}
+.exp-incl-included li::before {
+  content: '✔';
+  position: absolute;
+  left: 0;
+  color: #0d9488;
+  font-weight: 700;
+}
+.exp-incl-excluded li::before {
+  content: '✖';
+  position: absolute;
+  left: 0;
+  color: #b91c1c;
+  font-weight: 700;
+}
+.exp-section-cta {
+  text-align: center;
+  margin: 28px 0 0;
+}
+
+/* ---------- 6. Gallery ---------- */
+.exp-gallery {
+  padding-bottom: 100px; /* room for sticky CTA */
+}
+.exp-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.exp-gallery-item {
+  border-radius: var(--exp-radius);
+  overflow: hidden;
+  aspect-ratio: 4/3;
+  box-shadow: var(--exp-shadow);
+  transition: transform var(--exp-transition), box-shadow var(--exp-transition);
+}
+.exp-gallery-item:hover {
+  transform: scale(1.03);
+  box-shadow: var(--exp-shadow-hover);
+}
+.exp-gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--exp-transition);
+}
+.exp-gallery-item:hover img {
+  transform: scale(1.08);
+}
+@media (max-width: 768px) {
+  .exp-gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+}
+
+/* ---------- 7. Sticky CTA ---------- */
+.exp-sticky-cta {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  background: var(--exp-deep-blue);
+  padding: 14px 24px;
+  box-shadow: 0 -4px 24px rgba(0,0,0,0.2);
+  transform: translateY(100%);
+  transition: transform 0.35s ease;
+}
+.exp-sticky-cta.visible {
+  transform: translateY(0);
+}
+.exp-sticky-cta-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.exp-sticky-cta-text {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  margin: 0;
+}
+.exp-btn-sticky {
+  flex-shrink: 0;
+}
+@media (max-width: 600px) {
+  .exp-sticky-cta-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+/* Scroll reveal (use with .reveal from main styles) */
+.expedition-page .reveal.visible .exp-overview-grid,
+.expedition-page .reveal.visible .exp-route-grid,
+.expedition-page .reveal.visible .exp-accordion-day,
+.expedition-page .reveal.visible .exp-gallery-item {
+  animation: expFadeUp 0.6s ease forwards;
+}
+@keyframes expFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -12,6 +12,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="assets/styles.css" />
 </head>
 <body>
   <header class="header">
@@ -34,7 +35,7 @@
   </header>
 
   <section class="page-hero page-hero-with-bg">
-    <div class="page-hero-bg-img" style="background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80');"></div>
+    <div class="page-hero-bg-img" style="background-image: url('assets/images Ladakh 2026/Expedition Page Hero (Different from Home).png');"></div>
     <div class="container">
       <h1 class="page-title">Ladakh Bike Expedition 2026</h1>
       <p class="page-subtitle">Manali to Srinagar – 11 days across the world's highest motorable roads</p>
@@ -51,7 +52,7 @@
       <div class="expedition-intro">
         <p class="section-desc" style="max-width: 800px; margin: 0 auto 20px;">The Ladakh Bike Expedition is a high-altitude motorcycle adventure crafted for thrill seekers who want to conquer some of the world's highest motorable roads while exploring Himalayan culture and landscapes.</p>
         <div class="expedition-intro-img">
-          <img src="https://images.unsplash.com/photo-1526392060635-9d6019884377?w=900&q=80" alt="Riders on Khardung La" loading="lazy" />
+          <img src="assets/images Ladakh 2026/EXPEDITION INTRO IMAGE (Bikes focus).png" alt="Riders on Khardung La – Ladakh Bike Expedition" loading="lazy" />
         </div>
       </div>
     </div>
@@ -90,92 +91,44 @@
     </div>
   </section>
 
-  <!-- Detailed Itinerary (Accordion) -->
-  <section id="itinerary" class="section reveal">
+  <!-- Animated Road Timeline: bike moves day to day -->
+  <section id="itinerary" class="journey-section section reveal">
     <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Day by Day</span>
-        <h2 class="section-title">Detailed Itinerary</h2>
-        <p class="itinerary-hint">Tap any day to see what you'll do, where you'll stay and the highlights of that leg.</p>
+      <span class="section-tag">Day by Day</span>
+      <h2 class="section-title">11 Day Ride Across Himalayas</h2>
+      <p class="journey-hint">Click any day — the bike moves and that day's details appear below.</p>
+
+      <div class="road-wrapper">
+        <div class="road-line"></div>
+        <div class="bike" id="journey-bike" aria-hidden="true">🏍</div>
+        <div class="road-markers">
+          <button type="button" class="day-marker active" data-day="0" aria-pressed="true">Day 1</button>
+          <button type="button" class="day-marker" data-day="1">Day 2</button>
+          <button type="button" class="day-marker" data-day="2">Day 3</button>
+          <button type="button" class="day-marker" data-day="3">Day 4</button>
+          <button type="button" class="day-marker" data-day="4">Day 5</button>
+          <button type="button" class="day-marker" data-day="5">Day 6</button>
+          <button type="button" class="day-marker" data-day="6">Day 7</button>
+          <button type="button" class="day-marker" data-day="7">Day 8</button>
+          <button type="button" class="day-marker" data-day="8">Day 9</button>
+          <button type="button" class="day-marker" data-day="9">Day 10</button>
+          <button type="button" class="day-marker" data-day="10">Day 11</button>
+        </div>
       </div>
-      <div class="accordion-itinerary">
-        <details class="accordion-day" open>
-          <summary><span class="day-num">Day 1</span><span class="day-route">Manali Arrival</span><span class="day-toggle">View details</span></summary>
-          <div class="accordion-body">
-            <p>Check-in at the hotel, freshen up and explore locally at your own pace. In the evening, gather at the hotel for a briefing by our expert on do's and don'ts and important information to make your trip memorable.</p>
-            <p class="day-stay"><strong>Overnight:</strong> Hotel at Manali</p>
+
+      <div class="day-content" id="journey-day-content">
+        <div class="day-content-inner day-content-fade">
+          <div class="day-content-img" id="journey-day-img">
+            <img src="assets/images Ladakh 2026/Manali Arrival.png" alt="Day 1 – Manali" id="journey-day-img-src" />
           </div>
-        </details>
-        <details class="accordion-day">
-          <summary><span class="day-num">Day 2</span><span class="day-route">Manali to Sarchu</span><span class="day-toggle">View details</span></summary>
-          <div class="accordion-body">
-            <p>After breakfast we head to Sarchu — a key stretch of the Manali–Leh Highway. We cross the <strong>Atal Tunnel</strong> and climb toward <strong>Baralacha La</strong> (4,890 m). After Baralacha La, the road descends toward Sarchu (4,290 m).</p>
-            <p class="day-stay"><strong>Overnight:</strong> Sarchu</p>
+          <div class="day-content-text">
+            <h3 class="day-content-title" id="journey-day-title">Day 1 – Manali Arrival</h3>
+            <p class="day-content-desc" id="journey-day-desc">Check-in at the hotel, freshen up and explore locally at your own pace. In the evening, gather at the hotel for a briefing by our expert on do's and don'ts and important information to make your trip memorable.</p>
+            <p class="day-content-stay" id="journey-day-stay"><strong>Overnight:</strong> Hotel at Manali</p>
           </div>
-        </details>
-        <details class="accordion-day">
-          <summary><span class="day-num">Day 3</span><span class="day-route">Sarchu to Leh</span><span class="day-toggle">View details</span></summary>
-          <div class="accordion-body">
-            <p>From Sarchu we pass <strong>Gata Loops</strong> (21 hairpin bends), <strong>Nakee La</strong> (4,740 m), <strong>Lachulung La</strong> (5,059 m), reach Pang, then cross <strong>Moore Plains</strong> and <strong>Tanglang La</strong> before reaching Leh in the evening.</p>
-            <p class="day-stay"><strong>Overnight:</strong> Hotel at Leh</p>
-          </div>
-        </details>
-        <details class="accordion-day">
-          <summary><span class="day-num">Day 4</span><span class="day-route">Leh to Nubra</span><span class="day-toggle">View details</span></summary>
-          <div class="accordion-body">
-            <p>Drive through <strong>Khardung La</strong> (~5,359 m). Visit <strong>Diskit Monastery</strong>. In the evening we reach <strong>Hunder</strong>. After check-in you can visit Hunder and take a camel safari at your own.</p>
-            <p class="day-stay"><strong>Overnight:</strong> Campsite at Hunder / Nubra</p>
-          </div>
-        </details>
-        <details class="accordion-day">
-          <summary><span class="day-num">Day 5</span><span class="day-route">Nubra to Pangong</span><span class="day-toggle">View details</span></summary>
-          <div class="accordion-body">
-            <p>Start early via the <strong>Shyok River</strong> route. Arrive at <strong>Pangong Tso</strong>, the famous high-altitude lake. Spend the evening by the lake and unwind at your lakeside camp.</p>
-            <p class="day-stay"><strong>Overnight:</strong> Cottages near Pangong Lake</p>
-          </div>
-        </details>
-        <details class="accordion-day">
-          <summary><span class="day-num">Day 6</span><span class="day-route">Pangong to Hanle</span><span class="day-toggle">View details</span></summary>
-          <div class="accordion-body">
-            <p>Ride through the <strong>Changthang</strong> region, lunch at <strong>Rizang La</strong> war memorial in Chushul, then ride toward <strong>Hanle</strong>. En route explore the raw beauty of the mountains and spot kiang (mountain donkeys).</p>
-            <p class="day-stay"><strong>Overnight:</strong> Guesthouse / homestay at Hanle</p>
-          </div>
-        </details>
-        <details class="accordion-day">
-          <summary><span class="day-num">Day 7</span><span class="day-route">Hanle to Tso Moriri</span><span class="day-toggle">View details</span></summary>
-          <div class="accordion-body">
-            <p>Start early from Hanle toward Tso Moriri via <strong>Umling La Pass</strong> — the world's highest motorable road. Spend time at Umling La, then continue to <strong>Tso Moriri</strong>, a breathtaking alpine lake in the Changthang Plateau.</p>
-            <p class="day-stay"><strong>Overnight:</strong> Tso Moriri</p>
-          </div>
-        </details>
-        <details class="accordion-day">
-          <summary><span class="day-num">Day 8</span><span class="day-route">Tso Moriri to Leh</span><span class="day-toggle">View details</span></summary>
-          <div class="accordion-body">
-            <p>Leave early from Tso Moriri to Leh. En route explore <strong>Chumathang</strong> (hot springs), lunch at <strong>Upshi</strong>. Visit <strong>Rancho School</strong> and <strong>Thiksey Monastery</strong>. Reach Leh in the evening.</p>
-            <p class="day-stay"><strong>Overnight:</strong> Hotel at Leh</p>
-          </div>
-        </details>
-        <details class="accordion-day">
-          <summary><span class="day-num">Day 9</span><span class="day-route">Leh to Kargil</span><span class="day-toggle">View details</span></summary>
-          <div class="accordion-body">
-            <p>After breakfast we set out for Kargil. Stunning views of the <strong>Moon Landscape</strong> near <strong>Lamayuru Monastery</strong>. We witness the confluence of Zanskar and Indus at <strong>Sangam</strong>. En route visit <strong>Magnetic Hill</strong>, <strong>Pathar Sahib Gurudwara</strong> and the <strong>Hall of Fame</strong> museum.</p>
-            <p class="day-stay"><strong>Overnight:</strong> Hotel at Kargil</p>
-          </div>
-        </details>
-        <details class="accordion-day">
-          <summary><span class="day-num">Day 10</span><span class="day-route">Kargil to Srinagar</span><span class="day-toggle">View details</span></summary>
-          <div class="accordion-body">
-            <p>We visit the <strong>Kargil War Memorial</strong> and <strong>Mulbekh Monastery</strong> (statue of Chamba / Maitreya Buddha). Arrive in Srinagar for dinner at the hotel.</p>
-            <p class="day-stay"><strong>Overnight:</strong> Hotel at Srinagar</p>
-          </div>
-        </details>
-        <details class="accordion-day">
-          <summary><span class="day-num">Day 11</span><span class="day-route">Departure</span><span class="day-toggle">View details</span></summary>
-          <div class="accordion-body">
-            <p>After breakfast, check out from the hotel. Our team will ensure your smooth transfer to the airport for your onward journey. Take with you the thrill of adventure and unforgettable memories.</p>
-          </div>
-        </details>
+        </div>
       </div>
+
       <div class="section-cta-btns">
         <a href="pricing-dates.html" class="btn btn-outline">Pricing & Dates</a>
         <a href="contact.html" class="btn btn-primary">Book Now</a>
@@ -261,5 +214,62 @@
   </a>
 
   <script src="assets/script.js"></script>
+  <script>
+  (function() {
+    var dayData = [
+      { title: 'Day 1 – Manali Arrival', desc: 'Check-in at the hotel, freshen up and explore locally at your own pace. In the evening, gather at the hotel for a briefing by our expert on do\'s and don\'ts and important information to make your trip memorable.', stay: 'Hotel at Manali', img: 'assets/images Ladakh 2026/Manali Arrival.png' },
+      { title: 'Day 2 – Manali to Sarchu', desc: 'After breakfast we head to Sarchu — a key stretch of the Manali–Leh Highway. We cross the <strong>Atal Tunnel</strong> and climb toward <strong>Baralacha La</strong> (4,890 m). After Baralacha La, the road descends toward Sarchu (4,290 m).', stay: 'Sarchu', img: 'assets/images Ladakh 2026/Manali to Sarchu.png' },
+      { title: 'Day 3 – Sarchu to Leh', desc: 'From Sarchu we pass <strong>Gata Loops</strong> (21 hairpin bends), <strong>Nakee La</strong> (4,740 m), <strong>Lachulung La</strong> (5,059 m), reach Pang, then cross <strong>Moore Plains</strong> and <strong>Tanglang La</strong> before reaching Leh in the evening.', stay: 'Hotel at Leh', img: 'assets/images Ladakh 2026/Sarchu to Leh.png' },
+      { title: 'Day 4 – Leh to Nubra', desc: 'Drive through <strong>Khardung La</strong> (~5,359 m). Visit <strong>Diskit Monastery</strong>. In the evening we reach <strong>Hunder</strong>. After check-in you can visit Hunder and take a camel safari at your own.', stay: 'Campsite at Hunder / Nubra', img: 'assets/images Ladakh 2026/Leh to Nubra (Khardung La).png' },
+      { title: 'Day 5 – Nubra to Pangong', desc: 'Start early via the <strong>Shyok River</strong> route. Arrive at <strong>Pangong Tso</strong>, the famous high-altitude lake. Spend the evening by the lake and unwind at your lakeside camp.', stay: 'Cottages near Pangong Lake', img: 'assets/images Ladakh 2026/Nubra to Pangong.png' },
+      { title: 'Day 6 – Pangong to Hanle', desc: 'Ride through the <strong>Changthang</strong> region, lunch at <strong>Rizang La</strong> war memorial in Chushul, then ride toward <strong>Hanle</strong>. En route explore the raw beauty of the mountains and spot kiang (mountain donkeys).', stay: 'Guesthouse / homestay at Hanle', img: 'assets/images Ladakh 2026/Pangong to Hanle.png' },
+      { title: 'Day 7 – Hanle to Tso Moriri', desc: 'Start early from Hanle toward Tso Moriri via <strong>Umling La Pass</strong> — the world\'s highest motorable road. Spend time at Umling La, then continue to <strong>Tso Moriri</strong>, a breathtaking alpine lake in the Changthang Plateau.', stay: 'Tso Moriri', img: 'assets/images Ladakh 2026/Hanle to Tso Moriri (Umling La).png' },
+      { title: 'Day 8 – Tso Moriri to Leh', desc: 'Leave early from Tso Moriri to Leh. En route explore <strong>Chumathang</strong> (hot springs), lunch at <strong>Upshi</strong>. Visit <strong>Rancho School</strong> and <strong>Thiksey Monastery</strong>. Reach Leh in the evening.', stay: 'Hotel at Leh', img: 'assets/images Ladakh 2026/Tso Moriri to Leh.png' },
+      { title: 'Day 9 – Leh to Kargil', desc: 'After breakfast we set out for Kargil. Stunning views of the <strong>Moon Landscape</strong> near <strong>Lamayuru Monastery</strong>. We witness the confluence of Zanskar and Indus at <strong>Sangam</strong>. En route visit <strong>Magnetic Hill</strong>, <strong>Pathar Sahib Gurudwara</strong> and the <strong>Hall of Fame</strong> museum.', stay: 'Hotel at Kargil', img: 'assets/images Ladakh 2026/Leh to Kargil.png' },
+      { title: 'Day 10 – Kargil to Srinagar', desc: 'We visit the <strong>Kargil War Memorial</strong> and <strong>Mulbekh Monastery</strong> (statue of Chamba / Maitreya Buddha). Arrive in Srinagar for dinner at the hotel.', stay: 'Hotel at Srinagar', img: 'assets/images Ladakh 2026/Kargil to Srinagar.png' },
+      { title: 'Day 11 – Departure', desc: 'After breakfast, check out from the hotel. Our team will ensure your smooth transfer to the airport for your onward journey. Take with you the thrill of adventure and unforgettable memories.', stay: '', img: 'assets/images Ladakh 2026/Departure (Srinagar).png' }
+    ];
+    var markers = document.querySelectorAll('.journey-section .day-marker');
+    var bike = document.getElementById('journey-bike');
+    var titleEl = document.getElementById('journey-day-title');
+    var descEl = document.getElementById('journey-day-desc');
+    var stayEl = document.getElementById('journey-day-stay');
+    var imgEl = document.getElementById('journey-day-img-src');
+    var imgWrap = document.getElementById('journey-day-img');
+    var contentInner = document.querySelector('.day-content-inner');
+    if (!markers.length || !bike) return;
+    function goToDay(index) {
+      index = Math.max(0, Math.min(index, 10));
+      markers.forEach(function(m, i) {
+        m.classList.toggle('active', i === index);
+        m.setAttribute('aria-pressed', i === index);
+      });
+      bike.style.left = (index / 10) * 100 + '%';
+      var d = dayData[index];
+      titleEl.textContent = d.title;
+      descEl.innerHTML = d.desc;
+      if (d.stay) {
+        stayEl.innerHTML = '<strong>Overnight:</strong> ' + d.stay;
+        stayEl.style.display = '';
+      } else {
+        stayEl.style.display = 'none';
+      }
+      if (d.img && imgEl) {
+        imgEl.src = d.img;
+        imgEl.alt = d.title;
+        imgWrap.style.display = '';
+      } else {
+        imgWrap.style.display = 'none';
+      }
+      contentInner.classList.remove('day-content-fade');
+      contentInner.offsetHeight;
+      contentInner.classList.add('day-content-fade');
+    }
+    markers.forEach(function(marker, index) {
+      marker.addEventListener('click', function() { goToDay(index); });
+    });
+    goToDay(0);
+  })();
+  </script>
 </body>
 </html>
