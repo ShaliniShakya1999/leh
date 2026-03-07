@@ -141,15 +141,19 @@ a.btn-outline:focus {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 24px;
+  min-height: 56px;
 }
 
 .logo {
   display: flex;
   align-items: center;
+  flex-shrink: 0;
 }
 .logo-img {
   height: 56px;
   width: auto;
+  min-height: 44px;
   max-width: 220px;
   object-fit: contain;
   object-position: left center;
@@ -193,25 +197,34 @@ a.btn-outline:focus {
 
 .nav-menu {
   display: flex;
+  align-items: center;
   list-style: none;
-  gap: 8px;
+  gap: 4px;
+  margin: 0;
+  padding: 0;
+}
+.nav-menu li {
+  display: flex;
+  align-items: center;
 }
 .nav-menu a {
   position: relative;
   z-index: 1;
   font-weight: 500;
+  font-size: 0.9375rem;
+  line-height: 1.35;
   color: var(--color-text);
-  font-size: 0.95rem;
-  padding: 8px 14px;
+  padding: 10px 12px;
   border-radius: 8px;
+  white-space: nowrap;
   transition: color var(--transition), background var(--transition);
 }
 .nav-menu a::after {
   content: '';
   position: absolute;
-  bottom: 4px;
-  left: 14px;
-  right: 14px;
+  bottom: 6px;
+  left: 12px;
+  right: 12px;
   height: 2px;
   background: var(--color-sky);
   border-radius: 2px;
@@ -672,8 +685,21 @@ a.btn-outline:active {
   max-width: 1200px;
   margin: 0 auto;
 }
+.popular-dest-grid-five {
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+@media (max-width: 1200px) {
+  .popular-dest-grid-five {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+}
 @media (max-width: 900px) {
-  .popular-dest-grid-three {
+  .popular-dest-grid-three,
+  .popular-dest-grid-five {
     grid-template-columns: 1fr;
     gap: 24px;
   }
@@ -2079,7 +2105,7 @@ a.btn-outline:active {
 }
 .pricing-card .btn { width: 100%; }
 
-/* Policy blocks */
+/* Policy blocks (legacy) */
 .container-narrow { max-width: 720px; margin: 0 auto; }
 .policy-block {
   margin-bottom: 40px;
@@ -2102,6 +2128,139 @@ a.btn-outline:active {
   border-radius: var(--radius);
   color: #c62828;
   font-size: 0.95rem;
+}
+
+/* ========== Policies page (card-based) ========== */
+.policies-page .container { max-width: 880px; margin: 0 auto; }
+.policies-intro {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--color-text-muted);
+  margin-bottom: 48px;
+  text-align: center;
+  padding: 0 16px;
+}
+.policy-cards {
+  display: grid;
+  gap: 28px;
+}
+.policy-card {
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid rgba(12, 35, 64, 0.08);
+  box-shadow: var(--shadow-soft);
+  transition: box-shadow var(--transition), border-color var(--transition);
+}
+.policy-card:hover {
+  box-shadow: var(--shadow-card);
+  border-color: rgba(12, 35, 64, 0.12);
+}
+.policy-card-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 24px 28px 0;
+  margin-bottom: 8px;
+}
+.policy-card-icon {
+  flex-shrink: 0;
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: rgba(12, 35, 64, 0.06);
+  color: var(--color-sky);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.policy-card-icon svg { flex-shrink: 0; width: 28px; height: 28px; }
+.policy-card-icon-excl { color: var(--color-sunset-dark); background: rgba(224, 124, 60, 0.1); }
+.policy-card-title {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--color-sky);
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+.policy-card-body {
+  padding: 0 28px 28px;
+}
+.policy-card-desc {
+  font-size: 0.98rem;
+  color: var(--color-text-muted);
+  margin: 0 0 16px;
+  line-height: 1.6;
+}
+.policy-card ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+.policy-card ul li {
+  position: relative;
+  padding-left: 28px;
+  margin-bottom: 12px;
+  line-height: 1.6;
+  color: var(--color-text);
+}
+.policy-card ul li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.5em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-sunset);
+}
+.policy-card-included .policy-card-icon { color: #2e7d32; background: rgba(46, 125, 50, 0.1); }
+.policy-card-included ul li::before { background: #2e7d32; }
+.policy-card-excluded ul li::before { background: var(--color-sunset-dark); }
+.policy-card-warning .policy-card-icon { color: #c62828; background: rgba(198, 40, 40, 0.08); }
+.policy-card-warning .policy-card-title { color: #b71c1c; }
+.policy-sublist {
+  margin-top: 10px;
+  margin-bottom: 12px;
+  padding-left: 20px;
+  border-left: 2px solid rgba(12, 35, 64, 0.12);
+}
+.policy-sublist li { margin-bottom: 10px; }
+.policy-note {
+  margin-top: 16px;
+  padding: 14px 18px;
+  background: rgba(12, 35, 64, 0.04);
+  border-radius: var(--radius);
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  border-left: 3px solid var(--color-sky);
+}
+.policies-cta {
+  margin-top: 56px;
+  padding: 36px 24px;
+  text-align: center;
+  background: linear-gradient(135deg, rgba(12, 35, 64, 0.03), rgba(224, 124, 60, 0.04));
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(12, 35, 64, 0.06);
+}
+.policies-cta p {
+  margin: 0 0 20px;
+  font-size: 1.05rem;
+  color: var(--color-text);
+}
+.policies-cta .btn { min-width: 160px; }
+
+@media (max-width: 768px) {
+  .policy-card-header { padding: 20px 20px 0; gap: 14px; }
+  .policy-card-body { padding: 0 20px 24px; }
+  .policy-card-icon { width: 44px; height: 44px; }
+  .policy-card-icon svg { width: 22px; height: 22px; }
+  .policy-card-title { font-size: 1.2rem; }
+  .policy-card ul li { padding-left: 24px; margin-bottom: 10px; }
+  .policies-intro { margin-bottom: 36px; font-size: 1rem; }
+  .policies-cta { margin-top: 40px; padding: 28px 20px; }
 }
 
 /* Things to carry grid */
@@ -3247,10 +3406,20 @@ a.btn-outline:active {
     height: 100vh;
     background: var(--color-white);
     flex-direction: column;
-    padding: 80px 32px 32px;
-    gap: 24px;
+    align-items: stretch;
+    padding: 80px 24px 32px;
+    gap: 8px;
     box-shadow: -4px 0 24px rgba(0,0,0,0.08);
     transition: right var(--transition);
+  }
+  .nav-menu a {
+    font-size: 1rem;
+    padding: 14px 16px;
+    white-space: normal;
+  }
+  .nav-menu a::after {
+    left: 16px;
+    right: 16px;
   }
   .nav-menu.active {
     right: 0;
