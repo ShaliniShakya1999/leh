@@ -472,6 +472,27 @@ a.btn-outline:active {
 .testimonial-card:hover {
   box-shadow: var(--shadow-hover);
 }
+.testimonial-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 16px;
+  text-align: left;
+}
+.testimonial-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-sunset), var(--color-sky));
+  color: var(--color-white);
+  font-size: 1.25rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.testimonial-head .testimonial-stars { margin-bottom: 4px; }
 .testimonial-stars {
   color: var(--color-sunset);
   font-size: 1.25rem;
@@ -697,11 +718,45 @@ a.btn-outline:active {
     gap: 24px;
   }
 }
+.popular-dest-grid-six {
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.popular-dest-card-medium .popular-dest-img {
+  height: 220px;
+  position: relative;
+}
+.popular-dest-card-medium .popular-dest-body {
+  padding: 20px 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.popular-dest-card-medium .popular-dest-body h3 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+.popular-dest-card-medium .popular-dest-body p {
+  display: none;
+}
 @media (max-width: 900px) {
+  .popular-dest-grid-six {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
   .popular-dest-grid-three,
   .popular-dest-grid-five {
     grid-template-columns: 1fr;
     gap: 24px;
+  }
+}
+@media (max-width: 600px) {
+  .popular-dest-grid-six {
+    grid-template-columns: 1fr;
   }
 }
 .popular-dest-card {
@@ -953,6 +1008,44 @@ a.btn-outline:active {
   color: var(--color-text-muted);
   margin-top: 4px;
 }
+.why-stat-star .why-stat-num { margin-right: 2px; }
+.why-stat-star-icon {
+  color: var(--color-sunset);
+  font-size: 1.5rem;
+  display: inline;
+}
+
+/* 5-card grid for Why Choose Us */
+.why-cards-grid-five {
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+/* ========== Gallery ========== */
+.gallery-section { padding: 64px 0; }
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  margin-top: 32px;
+}
+.gallery-item {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+  aspect-ratio: 4/3;
+  background: var(--color-sky);
+}
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition);
+}
+.gallery-item:hover img { transform: scale(1.05); }
+
+/* CTA buttons row */
+.cta-btns-flex { flex-direction: row; align-items: center; }
+.btn-whatsapp { display: inline-flex; align-items: center; gap: 8px; }
 
 /* ========== Newsletter ========== */
 .newsletter-section {
@@ -2134,12 +2227,38 @@ a.btn-outline:active {
 .policies-page .container { max-width: 880px; margin: 0 auto; }
 .policies-intro {
   font-size: 1.05rem;
-  line-height: 1.7;
+  line-height: 1.6;
   color: var(--color-text-muted);
-  margin-bottom: 48px;
+  margin-bottom: 24px;
   text-align: center;
   padding: 0 16px;
 }
+.policies-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px 20px;
+  margin-bottom: 40px;
+  padding: 16px 20px;
+  background: rgba(14, 76, 146, 0.04);
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(14, 76, 146, 0.08);
+}
+.policies-nav a {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-sky);
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: 100px;
+  transition: background var(--transition), color var(--transition);
+}
+.policies-nav a:hover {
+  background: rgba(14, 76, 146, 0.1);
+  color: var(--color-sky);
+}
+.policy-list-tight { margin: 0; }
+.policy-list-tight li { margin-bottom: 10px; }
 .policy-cards {
   display: grid;
   gap: 28px;
@@ -2151,6 +2270,7 @@ a.btn-outline:active {
   border: 1px solid rgba(12, 35, 64, 0.08);
   box-shadow: var(--shadow-soft);
   transition: box-shadow var(--transition), border-color var(--transition);
+  scroll-margin-top: 100px;
 }
 .policy-card:hover {
   box-shadow: var(--shadow-card);
