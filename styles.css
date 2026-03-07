@@ -148,9 +148,9 @@ a.btn-outline:focus {
   align-items: center;
 }
 .logo-img {
-  height: 44px;
+  height: 56px;
   width: auto;
-  max-width: 180px;
+  max-width: 220px;
   object-fit: contain;
   object-position: left center;
   display: block;
@@ -758,6 +758,32 @@ a.btn-outline:active {
 .popular-dest-card-cta {
   background: linear-gradient(135deg, rgba(12, 35, 64, 0.04), rgba(224, 124, 60, 0.03));
   border-color: rgba(12, 35, 64, 0.1);
+}
+.popular-places-header { margin-top: 48px; margin-bottom: 20px; }
+.popular-places-header .section-title { font-size: 1.5rem; }
+.popular-places-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  align-items: center;
+}
+.popular-place-chip {
+  display: inline-block;
+  padding: 10px 18px;
+  background: rgba(12, 35, 64, 0.06);
+  color: var(--color-navy);
+  border: 1px solid rgba(12, 35, 64, 0.12);
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+}
+.popular-place-chip:hover {
+  background: var(--color-sunset);
+  border-color: var(--color-sunset);
+  color: var(--color-white);
 }
 
 /* ========== Featured Packages (home) ========== */
@@ -2891,9 +2917,9 @@ a.btn-outline:active {
   opacity: 1;
 }
 .footer-logo-img {
-  height: 42px;
+  height: 52px;
   width: auto;
-  max-width: 170px;
+  max-width: 200px;
   object-fit: contain;
   opacity: 0.95;
   transition: transform var(--transition);
