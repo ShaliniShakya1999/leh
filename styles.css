@@ -151,10 +151,10 @@ a.btn-outline:focus {
   flex-shrink: 0;
 }
 .logo-img {
-  height: 56px;
+  height: 68px;
   width: auto;
-  min-height: 44px;
-  max-width: 220px;
+  min-height: 48px;
+  max-width: 260px;
   object-fit: contain;
   object-position: left center;
   display: block;
@@ -588,6 +588,35 @@ a.btn-outline:active {
   max-width: 560px;
   margin: 0 auto;
 }
+.page-hero-desc {
+  font-size: 0.98rem;
+  opacity: 0.9;
+  max-width: 640px;
+  margin: 16px auto 0;
+  line-height: 1.6;
+}
+.budget-overview,
+.accommodation-note {
+  margin-top: 32px;
+  padding: 24px;
+  background: rgba(14, 76, 146, 0.04);
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(14, 76, 146, 0.08);
+}
+.budget-overview h4,
+.accommodation-note h4 {
+  font-size: 1.1rem;
+  color: var(--color-sky);
+  margin: 0 0 12px;
+}
+.budget-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 12px;
+}
+.budget-list li { margin-bottom: 8px; color: var(--color-text); }
+.budget-note { font-size: 0.9rem; color: var(--color-text-muted); margin: 0; }
+.accommodation-note p { margin: 0; font-size: 0.95rem; line-height: 1.6; color: var(--color-text); }
 .page-hero-with-bg {
   position: relative;
   overflow: hidden;
@@ -1764,6 +1793,12 @@ a.btn-outline:active {
   padding: 0;
 }
 .about-offerings li { margin-bottom: 6px; }
+.about-subhead {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-sky);
+  margin: 24px 0 12px;
+}
 .about-lead {
   font-size: 1.1rem;
   color: var(--color-sky);
@@ -3323,6 +3358,63 @@ a.btn-outline:active {
 .about-section-inner {
   position: relative;
 }
+/* Destination inner pages (Leh, Nubra, Pangong) */
+.destination-page-grid {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 48px;
+  align-items: center;
+}
+.destination-page-content .section-tag { display: inline-block; margin-bottom: 8px; }
+.destination-page-content .section-title { margin-bottom: 16px; }
+.destination-page-content .section-desc { margin-bottom: 20px; }
+.destination-highlights {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 24px;
+}
+.destination-highlights li {
+  position: relative;
+  padding-left: 24px;
+  margin-bottom: 10px;
+  color: var(--color-text);
+}
+.destination-highlights li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.5em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-sunset);
+}
+.destination-page-content .section-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 0;
+}
+.destination-page-img {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+}
+.destination-page-img img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+.text-center { text-align: center; }
+@media (max-width: 900px) {
+  .destination-page-grid {
+    grid-template-columns: 1fr;
+  }
+  .destination-page-img { max-height: 320px; }
+  .destination-page-img img { height: 320px; object-fit: cover; }
+}
+
 .about-teaser-grid {
   display: grid;
   grid-template-columns: 1fr 380px;
